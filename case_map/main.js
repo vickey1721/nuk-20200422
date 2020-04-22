@@ -36,6 +36,19 @@ var appView = new ol.View({
   zoom: 14
 });
 
+var dataLayer = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url:'../data.json',
+    format:new ol.format.GeoJSON()
+  })
+});
+
+var map = new ol.Map({
+  layers:[baseLayer,dataLayer],
+  target:'map',
+  view:appView
+});
+
 var map = new ol.Map({
   layers: [baseLayer],
   target: 'map',
